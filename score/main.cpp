@@ -12,12 +12,11 @@
 #include <vector>
 using namespace std;
 
-int main()
+void Score()
 {
     int j,i=0,max=0,min=100,m;
     int sf[10];
     int f[10];
-    
     ifstream fin("//Users//a20161104570//Desktop//表演名单.csv"); //打开文件流操作
     string line;
     while (getline(fin, line))   //整行读取，换行符“\n”区分，遇到文件尾标志eof终止读取
@@ -52,5 +51,59 @@ int main()
         
     }
     cout<<"幸苦了"<<endl;
-    return 0;
 }
+
+void Show()
+{
+    int i=0;
+    ifstream fin("//Users//a20161104570//Desktop//表演名单.csv"); //打开文件流操作
+    string line;
+    while (getline(fin, line))   //整行读取，换行符“\n”区分，遇到文件尾标志eof终止读取
+    {
+        i++;
+        cout<<"第 "<< i <<" 位选手:"<<endl;
+        cout <<"姓名,性别,班级,节目名称,节目类型,电话："<< endl << line << endl;
+    }
+}
+
+void Teacher()
+{
+    int i=0;
+    ifstream fin("//Users//a20161104570//Desktop//评委名单.csv"); //打开文件流操作
+    string line;
+    while (getline(fin, line))   //整行读取，换行符“\n”区分，遇到文件尾标志eof终止读取
+    {
+        i++;
+        cout <<"         姓名,性别,电话："<< endl << line << endl;
+    }
+
+}
+int main()
+{
+    
+    int i;
+    while(1)
+    {
+        cout<<"| ---------------------------------- \n";
+        cout<<"|	  1 --- 评委打分\n";
+        cout<<"|	  2 --- 表演名单\n";
+        cout<<"|	  3 --- 评委名单\n";
+        
+        cout<<"\n 请选择功能：";
+        scanf("%d",&i);
+        switch(i)
+        {
+            case 1:
+                Score();
+                break;
+            case 2:
+                Show();
+                break;
+            case 3:
+                Teacher();
+                break;
+        }
+    }
+}
+
+
